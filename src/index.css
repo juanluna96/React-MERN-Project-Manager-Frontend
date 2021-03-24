@@ -161,7 +161,7 @@ aside {
 
 .listado-proyectos,
 .listado-tareas {
-    max-height: 250px;
+    max-height: 750px;
     overflow-y: scroll;
     padding-right: 3px;
 }
