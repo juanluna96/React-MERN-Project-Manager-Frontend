@@ -8,7 +8,6 @@ const Tarea = ({ tarea }) => {
     const { proyecto } = proyectosContext;
 
     const [proyectoActual] = proyecto;
-    const { numTareas } = proyectoActual;
 
     // Extraer las funciones del context de tarea
     const tareasContext = useContext(tareaContext);
@@ -19,7 +18,7 @@ const Tarea = ({ tarea }) => {
         eliminarTarea(tarea, proyectoActual._id);
 
         if (tarea.estado === false) {
-            numTareas--;
+            proyectoActual.numTareas--;
         }
 
         // Obtener y filtrar las tareas del proyecto actual
@@ -29,9 +28,9 @@ const Tarea = ({ tarea }) => {
     // Función para cambiar el estado de la tarea
     const CambiarEstado = (tarea) => {
         if (tarea.estado === false) {
-            numTareas--;
+            proyectoActual.numTareas--;
         } else {
-            numTareas++;
+            proyectoActual.numTareas++;
         }
 
         tarea.estado = !tarea.estado;
@@ -40,7 +39,7 @@ const Tarea = ({ tarea }) => {
     }
 
     const EditarTarea = (tarea) => {
-        if (tarea.estado === true) { numTareas-- }
+        if (tarea.estado === true) { proyectoActual.numTareas-- }
 
         guardarTareaActual(tarea);
     }
