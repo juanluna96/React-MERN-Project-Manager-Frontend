@@ -30,6 +30,7 @@ const Listado = () => {
 
     // Funcion para ordenar
     function dynamicSort(property) {
+        // Cambiando orden
         var sortOrder = -1;
         if (property[0] === "-") {
             sortOrder = 1;
