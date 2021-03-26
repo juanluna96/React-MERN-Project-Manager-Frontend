@@ -35,7 +35,6 @@ const FormTareas = () => {
     }
 
     const [proyectoActual] = proyecto;
-    const { numTareas } = protectoActual;
 
     // Leer los valores del formulario
     const handleChange = (e) => {
@@ -70,7 +69,7 @@ const FormTareas = () => {
             limpiarTarea();
         }
         // Sumar una tarea mas al proyecto
-        numTareas++;
+        proyectoActual.numTareas++;
 
         // Obtener y filtrar las tareas del proyecto actual
         obtenerTareas(proyectoActual);
