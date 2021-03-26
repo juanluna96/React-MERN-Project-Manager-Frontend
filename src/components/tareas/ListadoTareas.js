@@ -16,7 +16,7 @@ const ListadoTareas = () => {
 
     // Si no hay proyecto seleccionado
     if (!proyecto) {
-        return <h2>Selecciona un proyecto</h2>
+        return <h2>Selecciona un colegio</h2>
     }
 
     const [proyectoActual] = proyecto;

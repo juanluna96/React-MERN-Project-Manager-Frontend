@@ -47,7 +47,6 @@ const Listado = () => {
 
     proyectos.sort(dynamicSort("numTareas"));
 
-    console.log(proyectos);
 
     return (
         <ul className="listado-proyectos">

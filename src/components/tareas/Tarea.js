@@ -8,6 +8,7 @@ const Tarea = ({ tarea }) => {
     const { proyecto } = proyectosContext;
 
     const [proyectoActual] = proyecto;
+    const { numTareas } = proyectoActual;
 
     // Extraer las funciones del context de tarea
     const tareasContext = useContext(tareaContext);
@@ -18,7 +19,7 @@ const Tarea = ({ tarea }) => {
         eliminarTarea(tarea, proyectoActual._id);
 
         if (tarea.estado === false) {
-            proyectoActual.numTareas--;
+            numTareas--;
         }
 
         // Obtener y filtrar las tareas del proyecto actual
@@ -28,9 +29,9 @@ const Tarea = ({ tarea }) => {
     // Función para cambiar el estado de la tarea
     const CambiarEstado = (tarea) => {
         if (tarea.estado === false) {
-            proyectoActual.numTareas--;
+            numTareas--;
         } else {
-            proyectoActual.numTareas++;
+            numTareas++;
         }
 
         tarea.estado = !tarea.estado;
@@ -39,14 +40,15 @@ const Tarea = ({ tarea }) => {
     }
 
     const EditarTarea = (tarea) => {
-        const nivelandoNumTareas = (tarea.estado === true) ? (proyectoActual.numTareas--) : null;
+        if (tarea.estado === true) { numTareas-- }
 
         guardarTareaActual(tarea);
     }
 
     return (
         <Fragment>
-            <li className="tarea sombra">{ tarea.nombre }
+            <li className="tarea sombra">
+                <p className="texto-tarea">{ tarea.nombre.charAt(0).toUpperCase() + tarea.nombre.slice(1) }</p>
                 <div className="d-flex">
                     <div className="estado">
                         {

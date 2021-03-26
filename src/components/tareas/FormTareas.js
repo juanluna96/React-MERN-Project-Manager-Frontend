@@ -35,6 +35,7 @@ const FormTareas = () => {
     }
 
     const [proyectoActual] = proyecto;
+    const { numTareas } = protectoActual;
 
     // Leer los valores del formulario
     const handleChange = (e) => {
@@ -69,7 +70,7 @@ const FormTareas = () => {
             limpiarTarea();
         }
         // Sumar una tarea mas al proyecto
-        proyectoActual.numTareas++;
+        numTareas++;
 
         // Obtener y filtrar las tareas del proyecto actual
         obtenerTareas(proyectoActual);
@@ -85,7 +86,7 @@ const FormTareas = () => {
     } else {
         return (
             <div className="formulario">
-                <button type="submit" className="btn btn-eliminar" onClick={ () => eliminarProyecto(proyectoActual) }>Eliminar soporte &times;</button>
+                <button type="submit" className="btn btn-eliminar" onClick={ () => eliminarProyecto(proyectoActual) }>Eliminar colegio &times;</button>
                 <form onSubmit={ onSubmit }>
                     { errortarea ? <p className="mensaje error">El nombre de la tarea es obligatorio</p> : null }
                     <div className="contenedor-input">

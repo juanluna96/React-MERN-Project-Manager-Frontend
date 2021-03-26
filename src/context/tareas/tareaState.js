@@ -36,7 +36,7 @@ const TareaState = (props) => {
                 type: TAREAS_PROYECTO,
                 payload: resultado.data.tareas
             })
-            console.log(resultado.data.tareas);
+
             setTimeout(() => {
                 dispatch({
                     type: DESACTIVAR_CARGANDO
