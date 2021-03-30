@@ -38,11 +38,11 @@ function ImagenTarea({ setTarea, tarea }) {
                 allowMultiple={ false }
                 server={ {
                     process: {
-                        url: `${process.env.REACT_APP_BACKEND_URL}/api/tareas/archivos`,
+                        url: `${process.env.REACT_APP_BACKEND_URL}api/tareas/archivos`,
                         method: 'POST',
                         onload: (response) => { addArchivo(JSON.parse(response)); }
                     },
-                    revert: `${process.env.REACT_APP_BACKEND_URL}/api/tareas/delete_file/${file_path}`
+                    revert: `${process.env.REACT_APP_BACKEND_URL}api/tareas/delete_file/${file_path}`
                 }
                 }
                 maxFiles={ 1 }
