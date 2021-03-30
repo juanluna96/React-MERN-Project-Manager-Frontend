@@ -18,8 +18,13 @@ const ListadoTareas = () => {
 
     // Si no hay proyecto seleccionado
     if (!proyecto) {
-        <img src={ escoger_colegio } alt="Escoge un colegio" />
-        return <h2>Selecciona un colegio</h2>
+
+        return (
+            <Fragment>
+                <img src={ escoger_colegio } alt="Escoge un colegio" />
+                <h2>Selecciona un colegio</h2>
+            </Fragment>
+        )
     }
 
     const [proyectoActual] = proyecto;
