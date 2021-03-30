@@ -42,7 +42,7 @@ function ImagenTarea({ setTarea, tarea }) {
                         method: 'POST',
                         onload: (response) => { addArchivo(JSON.parse(response)); }
                     },
-                    revert: `${process.env.REACT_APP_BACKEND_URL}api/tareas/delete_file/?file=${file_path}`
+                    revert: `${process.env.REACT_APP_BACKEND_URL}api/tareas/delete_file?file=${file_path}`
                 }
                 }
                 maxFiles={ 1 }
