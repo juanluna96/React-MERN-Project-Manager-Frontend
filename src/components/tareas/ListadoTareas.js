@@ -5,7 +5,7 @@ import tareaContext from '../../context/tareas/tareaContext';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Snipper from '../snipper/Snipper';
 import BuscadorTareas from './BuscadorTareas';
-import escoger_colegio from '../../public/img/escoger_colegio';
+import escoger_colegio from '../../public/img/escoger_colegio.svg';
 
 const ListadoTareas = () => {
     // Obtener el state del proyecto
