@@ -61,6 +61,12 @@ a {
     color: var(--gris2);
 }
 
+.escoger-colegio {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-style: italic;
+}
+
 
 /** BOTONES **/
 
@@ -178,9 +184,16 @@ aside {
 
 .listado-proyectos,
 .listado-tareas {
-    max-height: 380px;
     overflow-y: scroll;
     padding-right: 3px;
+}
+
+.listado-proyectos {
+    max-height: 380px;
+}
+
+.listado-tareas {
+    max-height: 550px;
 }
 
 .listado-proyectos li {

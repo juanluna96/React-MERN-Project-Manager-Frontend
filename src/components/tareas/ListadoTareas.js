@@ -21,8 +21,8 @@ const ListadoTareas = () => {
 
         return (
             <Fragment>
+                <h1 className="escoger-colegio">Selecciona un colegio</h1>
                 <img src={ escoger_colegio } alt="Escoge un colegio" />
-                <h2>Selecciona un colegio</h2>
             </Fragment>
         )
     }
