@@ -5,6 +5,7 @@ import tareaContext from '../../context/tareas/tareaContext';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Snipper from '../snipper/Snipper';
 import BuscadorTareas from './BuscadorTareas';
+import escoger_colegio from '../../public/img/escoger_colegio';
 
 const ListadoTareas = () => {
     // Obtener el state del proyecto
@@ -17,6 +18,7 @@ const ListadoTareas = () => {
 
     // Si no hay proyecto seleccionado
     if (!proyecto) {
+        <img src={ escoger_colegio } alt="Escoge un colegio" />
         return <h2>Selecciona un colegio</h2>
     }
 
