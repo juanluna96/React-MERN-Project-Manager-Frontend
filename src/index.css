@@ -189,11 +189,11 @@ aside {
 }
 
 .listado-proyectos {
-    max-height: 380px;
+    max-height: 550px;
 }
 
 .listado-tareas {
-    max-height: 550px;
+    max-height: 380px;
 }
 
 .listado-proyectos li {
