@@ -5,7 +5,8 @@ import {
     VALIDAR_FORMULARIO,
     PROYECTO_ACTUAL,
     ELIMINAR_PROYECTO,
-    PROYECTO_ERROR
+    PROYECTO_ERROR,
+    BUSCAR_PROYECTO
 } from '../../types';
 
 export const proyectoReducer = (state, action) => {
@@ -31,6 +32,9 @@ export const proyectoReducer = (state, action) => {
 
         case PROYECTO_ERROR:
             return { ...state, mensaje: action.payload };
+
+        case BUSCAR_PROYECTO:
+            return { ...state, proyectos: state.proyectos.filter(proyecto => proyecto.nombre.toLowerCase().includes(action.payload.toLowerCase())) };
 
         default:
             return state;

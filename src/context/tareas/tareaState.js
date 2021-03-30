@@ -1,4 +1,6 @@
 import React, { useReducer } from 'react';
+import download from 'downloadjs';
+
 import tareaContext from './tareaContext'
 import { TareaReducer } from './tareaReducer'
 
@@ -10,13 +12,15 @@ import {
     TAREA_ACTUAL,
     ACTUALIZAR_TAREA,
     LIMPIAR_TAREA,
-    DESACTIVAR_CARGANDO
+    DESACTIVAR_CARGANDO,
+    BUSCAR_TAREA
 } from '../../types';
 import clienteAxios from '../../config/axios';
 
 const TareaState = (props) => {
     const initialState = {
         tareasproyecto: [],
+        tareasProyectoFiltrado: [],
         errortarea: false,
         tareaseleccionada: null,
         cargando: false
@@ -36,7 +40,7 @@ const TareaState = (props) => {
                 type: TAREAS_PROYECTO,
                 payload: resultado.data.tareas
             })
-            console.log(resultado.data.tareas);
+            // console.log(resultado.data.tareas);
             setTimeout(() => {
                 dispatch({
                     type: DESACTIVAR_CARGANDO
@@ -110,10 +114,30 @@ const TareaState = (props) => {
         })
     }
 
+    // Buscar una tarea en la lista de tareas
+    const buscarTareas = (valor) => {
+        dispatch({
+            type: BUSCAR_TAREA,
+            payload: valor
+        });
+    }
+
+    // Descargar una tarea
+    const descargarTarea = async (tarea) => {
+        try {
+            const { archivo, _id } = tarea;
+            const resultado = await clienteAxios.get(`/api/tareas/download_file`, { responseType: 'blob', params: { archivo } });
+            const extension = resultado.data.type.split('/')[1];
+            download(resultado.data, `${_id}.${extension}`);
+        } catch (error) {
+            console.log(error.response)
+        }
+    }
+
     return (
         <tareaContext.Provider value={ {
-            tareasproyecto: state.tareasproyecto, errortarea: state.errortarea, tareaseleccionada: state.tareaseleccionada, cargando: state.cargando,
-            obtenerTareas, agregarTarea, validarTarea, eliminarTarea, guardarTareaActual, actualizarTarea, limpiarTarea
+            tareasproyecto: state.tareasproyecto, errortarea: state.errortarea, tareaseleccionada: state.tareaseleccionada, cargando: state.cargando, tareasProyectoFiltrado: state.tareasProyectoFiltrado,
+            obtenerTareas, agregarTarea, validarTarea, eliminarTarea, guardarTareaActual, actualizarTarea, limpiarTarea, descargarTarea, buscarTareas
         } }>
             {props.children }
         </tareaContext.Provider>

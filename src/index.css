@@ -4,6 +4,7 @@
     --gris2: #139265;
     --verde1: #049c5d;
     --gris3: #353739;
+    --rojo1: #f65578;
     --negro: #000000;
     --textFont: 'Roboto', sans-serif;
 }
@@ -98,11 +99,21 @@ a {
 .btn-terciario {
     background-color: var(--verde1);
     color: white;
+    margin-top: 5px;
+}
+
+.btn-cuaternario {
+    background-color: var(--rojo1);
+    color: white;
 }
 
 .btn-block {
     display: block;
     width: 100%;
+}
+
+.btn-radius {
+    border-radius: 50%!important;
 }
 
 .btn-submit:hover {
@@ -155,13 +166,19 @@ aside {
     color: var(--gris2);
 }
 
+.texto-tarea {
+    font-size: 15px;
+    font-style: italic;
+    max-width: 450px;
+}
+
 .proyectos {
     margin-top: 10rem;
 }
 
 .listado-proyectos,
 .listado-tareas {
-    max-height: 750px;
+    max-height: 380px;
     overflow-y: scroll;
     padding-right: 3px;
 }
@@ -231,17 +248,22 @@ aside {
     border-radius: .5rem;
     flex: 1;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 
 /** TAREAS LISTADO **/
 
 .contenedor-tareas {
+    text-align: center;
+}
+
+.contenedor-tareas {
     padding: 4rem;
 }
 
 .listado-tareas {
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
 }
 

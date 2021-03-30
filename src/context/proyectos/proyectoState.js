@@ -8,7 +8,8 @@ import {
     VALIDAR_FORMULARIO,
     PROYECTO_ACTUAL,
     ELIMINAR_PROYECTO,
-    PROYECTO_ERROR
+    PROYECTO_ERROR,
+    BUSCAR_PROYECTO
 } from '../../types';
 import clienteAxios from '../../config/axios';
 
@@ -111,6 +112,13 @@ const ProyectoState = props => {
         }
     }
 
+    const buscarProyecto = (valor) => {
+        dispatch({
+            type: BUSCAR_PROYECTO,
+            payload: valor
+        });
+    }
+
     return (
         <proyectoContext.Provider value={ {
             proyectos: state.proyectos,
@@ -123,7 +131,8 @@ const ProyectoState = props => {
             agregarProyecto,
             mostrarError,
             proyectoActual,
-            eliminarProyecto
+            eliminarProyecto,
+            buscarProyecto
         } }>
             {props.children }
         </proyectoContext.Provider>
