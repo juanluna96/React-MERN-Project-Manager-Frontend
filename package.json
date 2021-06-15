@@ -11,6 +11,7 @@
     "filepond": "^4.26.1",
     "filepond-plugin-image-exif-orientation": "^1.0.11",
     "filepond-plugin-image-preview": "^4.6.6",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-countdown": "^2.3.2",
     "react-datetime-picker": "^3.3.0",
