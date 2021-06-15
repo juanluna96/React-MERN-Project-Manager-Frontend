@@ -4,7 +4,12 @@ import './Snipper.css'
 
 const Snipper = () => {
     return (
-        <div className="loader">Loading...</div>
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     )
 }
 

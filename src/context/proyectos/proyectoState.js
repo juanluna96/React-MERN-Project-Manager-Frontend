@@ -9,7 +9,8 @@ import {
     PROYECTO_ACTUAL,
     ELIMINAR_PROYECTO,
     PROYECTO_ERROR,
-    BUSCAR_PROYECTO
+    BUSCAR_PROYECTO,
+    CARGANDO_PROYECTOS
 } from '../../types';
 import clienteAxios from '../../config/axios';
 
@@ -20,7 +21,8 @@ const ProyectoState = props => {
         formulario: false,
         errorformulario: false,
         proyecto: null,
-        mensaje: null
+        mensaje: null,
+        loading: false
     }
 
     // Dispatch para ejecutar las acciones
@@ -36,6 +38,10 @@ const ProyectoState = props => {
     // Obtener los proyectos
     const obtenerProyectos = async () => {
         try {
+            dispatch({
+                type: CARGANDO_PROYECTOS
+            })
+
             const resultado = await clienteAxios.get('/api/proyectos');
             const proyectos = resultado.data.proyectos;
 
@@ -126,6 +132,7 @@ const ProyectoState = props => {
             errorformulario: state.errorformulario,
             proyecto: state.proyecto,
             mensaje: state.mensaje,
+            loading: state.loading,
             mostrarFormulario,
             obtenerProyectos,
             agregarProyecto,
@@ -134,7 +141,7 @@ const ProyectoState = props => {
             eliminarProyecto,
             buscarProyecto
         } }>
-            {props.children }
+            { props.children }
         </proyectoContext.Provider>
     )
 }

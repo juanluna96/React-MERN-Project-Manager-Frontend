@@ -6,7 +6,8 @@ import {
     PROYECTO_ACTUAL,
     ELIMINAR_PROYECTO,
     PROYECTO_ERROR,
-    BUSCAR_PROYECTO
+    BUSCAR_PROYECTO,
+    CARGANDO_PROYECTOS
 } from '../../types';
 
 export const proyectoReducer = (state, action) => {
@@ -15,8 +16,13 @@ export const proyectoReducer = (state, action) => {
             // return { ...state, formulario: !state.formulario };
             return { ...state, formulario: true };
 
+        case CARGANDO_PROYECTOS:
+            console.log(state.loading);
+            return { ...state, loading: true };
+
         case OBTENER_PROYECTOS:
-            return { ...state, proyectos: action.payload };
+            console.log(state.loading);
+            return { ...state, proyectos: action.payload, loading: false };
 
         case AGREGAR_PROYECTO:
             return { ...state, proyectos: [...state.proyectos, action.payload], formulario: false, errorformulario: false };

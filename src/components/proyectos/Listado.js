@@ -3,6 +3,7 @@ import Proyecto from './Proyecto';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import AlertaContext from '../../context/alertas/alertaContext';
+import Snipper from '../snipper/Snipper';
 
 const Listado = () => {
 
@@ -11,7 +12,7 @@ const Listado = () => {
 
     // Obtener el proyecto del state inicial
     const proyectosContext = useContext(proyectoContext)
-    const { mensaje, proyectos, obtenerProyectos } = proyectosContext;
+    const { mensaje, proyectos, obtenerProyectos, loading } = proyectosContext;
 
     // Obtener proyecto cuando carga el componente
     useEffect(() => {
@@ -23,10 +24,15 @@ const Listado = () => {
         // eslint-disable-next-line
     }, [mensaje]);
 
+    if (loading) {
+        return <Snipper></Snipper>
+    }
+
     // Revisar si proyecto tiene contenido
     if (proyectos.length === 0) {
         return <p>No hay proyectos comienza creando uno</p>
     }
+
 
     // Función para ordenar
     function dynamicSort(property) {

@@ -175,7 +175,8 @@ aside {
 .texto-tarea {
     font-size: 15px;
     font-style: italic;
-    max-width: 450px;
+    max-width: 350px;
+    text-align: initial;
 }
 
 .proyectos {
@@ -250,6 +251,20 @@ aside {
     display: flex;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+.input-time>div {
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    flex: 1 1;
+    width: 100%;
+    margin-bottom: 10px;
+    background: white;
+}
+
 .contenedor-input label {
     margin-bottom: 1rem;
     color: var(--blanco);
@@ -281,19 +296,27 @@ aside {
 }
 
 .tarea {
-    display: flex;
+    display: block;
     justify-content: space-between;
     background-color: var(--blanco);
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 1.5rem 2rem;
     align-items: center;
     margin-bottom: 1rem;
     border-radius: .5rem;
 }
 
+.time-text {
+    font-size: 12px;
+    color: gray;
+}
+
 .texto-tarea {
     font-size: 15px;
     font-style: italic;
-    max-width: 450px;
+    max-width: 300px;
+    text-align: initial;
+    overflow-y: auto;
+    max-height: 80px;
 }
 
 .d-flex {
@@ -320,7 +343,6 @@ aside {
 
 .tarea p {
     font-size: 1.6rem;
-    flex: 1;
     padding-right: 2rem;
 }
 
